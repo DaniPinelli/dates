@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const Form = () => {
   //Add Appointment State
@@ -39,8 +40,12 @@ const Form = () => {
       return;
     }
 
-    //Asign id
+    //Delete prev messagge if exist
+    updateError(false);
 
+    //Asign id
+    date.id = uuidv4();
+    console.log(date);
     //Create the date
 
     //Refresh the form
