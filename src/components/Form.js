@@ -5,22 +5,54 @@ const Form = () => {
   const [date, updateDate] = useState({
     name: "",
     lastName: "",
-    date: "",
+    dateA: "",
     time: "",
     symptoms: "",
   });
 
+  const [error, updateError] = useState(false);
+
+  //Function that is executed when the user types in the input
   const updateState = (e) => {
     updateDate({
       ...date,
       [e.target.name]: e.target.value,
     });
   };
+
+  //Extract the values
+  const { name, lastName, dateA, time, symptoms } = date;
+
+  //When user submit the form
+  const submitDate = (e) => {
+    e.preventDefault();
+
+    //Validate
+    if (
+      name.trim() === "" ||
+      lastName.trim() === "" ||
+      dateA.trim() === "" ||
+      time.trim() === "" ||
+      symptoms.trim() === ""
+    ) {
+      updateError(true);
+      return;
+    }
+
+    //Asign id
+
+    //Create the date
+
+    //Refresh the form
+  };
+
   return (
     <Fragment>
       <h2>Create </h2>
 
-      <form>
+      {error ? <p className="alert-error">Please complete all fields</p> : null}
+
+      <form onSubmit={submitDate}>
         <label>Patient Name</label>
         <input
           type="text"
@@ -28,6 +60,7 @@ const Form = () => {
           className="u-full-width"
           placeholder="First Name"
           onChange={updateState}
+          value={name}
         />
         <input
           type="text"
@@ -35,13 +68,15 @@ const Form = () => {
           className="u-full-width"
           placeholder="Last Name"
           onChange={updateState}
+          value={lastName}
         />
         <label>Date</label>
         <input
           type="date"
-          name="date"
+          name="dateA"
           className="u-full-width"
           onChange={updateState}
+          value={dateA}
         />
         <label>Time</label>
         <input
@@ -49,12 +84,14 @@ const Form = () => {
           name="time"
           className="u-full-width"
           onChange={updateState}
+          value={time}
         />
         <label>Symptoms</label>
         <textarea
           className="u-full-width"
           name="symptoms"
           onChange={updateState}
+          value={symptoms}
         ></textarea>
         <button type="submit" className="u-full-width button-primary">
           Submit
