@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = () => {
+const Form = ({ createDate }) => {
   //Add Appointment State
   const [date, updateDate] = useState({
     name: "",
@@ -45,10 +45,18 @@ const Form = () => {
 
     //Asign id
     date.id = uuidv4();
-    console.log(date);
+
     //Create the date
+    createDate(date);
 
     //Refresh the form
+    updateDate({
+      name: "",
+      lastName: "",
+      dateA: "",
+      time: "",
+      symptoms: "",
+    });
   };
 
   return (
