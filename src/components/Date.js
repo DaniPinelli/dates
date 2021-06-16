@@ -22,7 +22,7 @@ const Date = ({ date, deleteDate }) => (
       className="button delete u-full-width"
       onClick={() => deleteDate(date.id)}
     >
-      Delete &times;
+      Delete
     </button>
   </div>
 );

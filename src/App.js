@@ -10,7 +10,7 @@ function App() {
   }
 
   //Dates array
-  const [dates, storeDates] = useState([initialDates]);
+  const [dates, storeDates] = useState([]);
 
   //Using useEffect when state changes
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
   };
 
   //Optional messagge
-  const title = dates.length === 0 ? "" : "List";
+  const title = dates.length >= 1 ? "" : "List";
 
   return (
     <Fragment>
