@@ -3,12 +3,24 @@ import Form from "./components/Form";
 import Date from "./components/Date";
 
 function App() {
+  //Dates on localStorage
+  let initialDates = localStorage.getItem("dates");
+  if (!initialDates) {
+    initialDates = [];
+  }
+
   //Dates array
-  const [dates, storeDates] = useState([]);
+  const [dates, storeDates] = useState([initialDates]);
 
   //Using useEffect when state changes
   useEffect(() => {
-    console.log("Document ready or something happens");
+    let initialDates = localStorage.getItem("dates");
+
+    if (initialDates) {
+      localStorage.setItem("dates", JSON.stringify(dates));
+    } else {
+      localStorage.setItem("dates", JSON.stringify([]));
+    }
   }, [dates]);
 
   //Taking new dates and add the new date
