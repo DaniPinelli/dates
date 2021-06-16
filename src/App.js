@@ -35,7 +35,7 @@ function App() {
   };
 
   //Optional messagge
-  const title = dates.length >= 1 ? "" : "List";
+  const title = dates.length === 0 ? "" : "List";
 
   return (
     <Fragment>
