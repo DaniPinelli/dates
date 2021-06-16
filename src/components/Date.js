@@ -1,5 +1,6 @@
 import React from "react";
-const Date = ({ date }) => (
+
+const Date = ({ date, deleteDate }) => (
   <div className="date">
     <p>
       First Name <span> {date.name} </span>
@@ -16,6 +17,13 @@ const Date = ({ date }) => (
     <p>
       Symptoms <span> {date.symptoms} </span>
     </p>
+
+    <button
+      className="button delete u-full-width"
+      onClick={() => deleteDate(date.id)}
+    >
+      Delete &times;
+    </button>
   </div>
 );
 

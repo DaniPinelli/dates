@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Form from "./components/Form";
 import Date from "./components/Date";
 
@@ -6,10 +6,24 @@ function App() {
   //Dates array
   const [dates, storeDates] = useState([]);
 
+  //Using useEffect when state changes
+  useEffect(() => {
+    console.log("Document ready or something happens");
+  }, [dates]);
+
   //Taking new dates and add the new date
   const createDate = (date) => {
     storeDates([...dates, date]);
   };
+
+  //Delete dates by id
+  const deleteDate = (id) => {
+    const newDates = dates.filter((date) => date.id !== id);
+    storeDates(newDates);
+  };
+
+  //Optional messagge
+  const title = dates.length === 0 ? "" : "List";
 
   return (
     <Fragment>
@@ -21,9 +35,9 @@ function App() {
             <Form createDate={createDate} />
           </div>
           <div className="one-half column">
-            <h2>Appointment list</h2>
+            <h3>{title}</h3>
             {dates.map((date) => (
-              <Date key={date.id} date={date} />
+              <Date key={date.id} date={date} deleteDate={deleteDate} />
             ))}
           </div>
         </div>

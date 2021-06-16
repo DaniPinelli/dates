@@ -61,7 +61,7 @@ const Form = ({ createDate }) => {
 
   return (
     <Fragment>
-      <h2>Create </h2>
+      <h3>Create Appointment</h3>
 
       {error ? <p className="alert-error">Please complete all fields</p> : null}
 

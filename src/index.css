@@ -9,7 +9,7 @@ body {
   min-height: 100%;
   padding-bottom: 5rem;
 }
-h1, h2  {
+h1, h2, h3  {
   color: white;
   padding: 3rem 0;
   text-align: center;
@@ -66,3 +66,10 @@ input[type="time"] {
   text-align: center;
   font-family:  'Staatliches', cursive;
 } 
+
+.button.delete,
+.button.delete:hover {
+  background-color: #c10059;
+  color: white;
+  margin-top: 2rem;
+}
