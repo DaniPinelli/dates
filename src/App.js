@@ -35,7 +35,7 @@ function App() {
   };
 
   //Optional messagge
-  const title = dates.length === 0 ? "" : "List";
+  //const title = dates.length === 0 ? "" : "List";
 
   return (
     <Fragment>
@@ -47,7 +47,6 @@ function App() {
             <Form createDate={createDate} />
           </div>
           <div className="one-half column">
-            <h3>{title}</h3>
             {dates.map((date) => (
               <Date key={date.id} date={date} deleteDate={deleteDate} />
             ))}
